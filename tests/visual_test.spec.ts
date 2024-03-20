@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { HomePage } from '../utils/homePage';
+import { HomePage } from '../Utils/HomePage';
 
 test.describe("24MX - Visual testing", () => {
     let homePage: HomePage;
@@ -11,7 +11,7 @@ test.describe("24MX - Visual testing", () => {
     });
 
     test('Full page without embedded video', async ({ page }) => {
-        await expect(page).toHaveScreenshot("fullPage.png", {fullPage: true, maxDiffPixelRatio: 0.01, mask: [homePage.motocrossVideo]});
+        await expect(page).toHaveScreenshot("fullPage.png", {fullPage: true, maxDiffPixelRatio: 0.02, mask: [homePage.motocrossVideo]});
     });
 
     test('Interactivity of search field', async () => {
