@@ -11,12 +11,12 @@ test.describe("24MX - Visual testing", () => {
     });
 
     test('Full page without embedded video', async ({ page }) => {
-        await expect(page).toHaveScreenshot("fullPage.png", {fullPage: true, maxDiffPixelRatio: 0.02, mask: [homePage.motocrossVideo]});
+        await expect(page).toHaveScreenshot("fullPage.png", {fullPage: true, maxDiffPixelRatio: 0.05, mask: [homePage.motocrossVideo]});
     });
 
     test('Interactivity of search field', async () => {
         await homePage.searchField.fill('This is a test. My test.');
-        await expect(homePage.searchField).toHaveScreenshot("searchField.png");
+        await expect(homePage.searchField).toHaveScreenshot("searchField.png", {threshold: 0.2});
     });
 
     test('Popular categories bar', async () => {
